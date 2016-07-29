@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="all,follow">
+    <meta name="googlebot" content="index,follow,snippet,archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Freelancer | Oficina de sistemas</title>
+
+    <meta name="keywords" content="">
+
+    <link href='https://www.google.com.br/maps/@-9.5323892,-37.2926395,15z?hl=pt-BR' rel='stylesheet' type='text/css'>
+
+
+    <!-- Bootstrap and Font Awesome css -->
+    <link href="/media/css/font-awesome.css" rel="stylesheet">
+    <link href="/media/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme stylesheet -->
+    <link href="/media/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+    <!-- Custom stylesheet - for your changes -->
+    <link href="/media/css/custom.css" rel="stylesheet">
+
+    <!-- owl carousel css -->
+
+    <link href="/media/css/owl.carousel.css" rel="stylesheet">
+    <link href="/media/css/owl.theme.css" rel="stylesheet">
+
+    <!-- CSS Animations -->
+    <link href="/media/css/animate.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/media/icon1.png">
+
+    <!-- Mordernizr -->
+    <script src="/media/js/modernizr-2.6.2.min.js"></script>
+
+    <!-- Responsivity for older IE -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+<![endif]-->
+</head>
+<body>
+    <div class="container fadeInUp" >
+    <h3 class="title animated fadeInUp" >Vizitantes : {{ tamanho }} </h3>
+    <ul class="col-md-3 animated fadeInUp">
+    {% for i in mensagens %}
+        <li class="list-group-item-success">
+            <a href="/mensagem_contato/{{ i.id }}" >{{ i.first_name }} - {{ i.data }}</a>
+        </li>
+     {% empty %}
+            <h3>Sem mensagens!</h3>
+    {% endfor %}
+    </ul>
+    <a href="/">Voltar ao Portofólio</a>
+   </div>
+</body>
+</html>

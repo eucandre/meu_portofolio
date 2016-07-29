@@ -6,6 +6,7 @@ class contato(models.Model):
     email       = models.EmailField()
     phone       = models.CharField(max_length=150)
     message_text = models.TextField()
+    data = models.DateField(auto_now=True)
 
     def __unicode__(self):
         return self.email
