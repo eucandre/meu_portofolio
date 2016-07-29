@@ -22,7 +22,8 @@ def dashboard(request):
     mensagens = contato.objects.all()
     nome_contato = contato.objects.get(pk=len(mensagens))
     tamanho = len(mensagens)
-    return render_to_response("administrativo/index.html",{"mensagens":mensagens, "tamanho":tamanho})
+    dat = contato.objects.get(pk=len(contato.objects.all()))
+    return render_to_response("administrativo/index.html",{"mensagens":mensagens, "tamanho":tamanho, "data":dat.data})
 
 def aconpanha(request, nr_item):
     try:
