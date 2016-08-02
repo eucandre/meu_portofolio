@@ -19,6 +19,7 @@ def portofolio(request):
     return render_to_response("index.html",{"form": form}, RequestContext(request))
 #@login_required
 def dashboard(request):
+
     mensagens = contato.objects.all()
     nome_contato = contato.objects.get(pk=len(mensagens))
     tamanho = len(mensagens)

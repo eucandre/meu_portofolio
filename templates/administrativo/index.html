@@ -44,17 +44,17 @@
 </head>
 <body>
     <div class="container fadeInUp" >
-    <h3 class="title animated fadeInUp" >Mensagens : {{ tamanho }} </h3><small>Data da última mensagem postada: {{data}}.</small>
-    <ul class="col-md-3 animated fadeInUp">
+    <h3 class="title animated fadeInUp" >Mensagens : {{ tamanho }} </h3><h2 class="title animated fadeInUp">Data da última mensagem postada: {{data}}.</h2>
+    <ul class="col-md-3 animated fadeInUp list-group">
     {% for i in mensagens %}
-        <li class="list-group-item-success">
-            <a href="/mensagem_contato/{{ i.id }}" >{{ i.first_name }} - {{ i.data }}</a>
+        <li class="list-group-item-success list-group-item">
+            <a href="/mensagem_contato/{{ i.id }}" ><span>{{ i.first_name }}</span> <span  class="badge">{{ i.data }}</span></a>
         </li>
      {% empty %}
             <h3>Sem mensagens!</h3>
     {% endfor %}
     </ul>
-    <a href="/">Voltar ao Portofólio</a>
+    <a class="title animated fadeInUp" href="/">Voltar ao Portofólio</a>
    </div>
 </body>
 </html>

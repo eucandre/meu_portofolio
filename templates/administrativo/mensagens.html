@@ -9,7 +9,7 @@
     <title>Freelancer | Oficina de sistemas</title>
 
     <meta name="keywords" content="">
-
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <link href='https://www.google.com.br/maps/@-9.5323892,-37.2926395,15z?hl=pt-BR' rel='stylesheet' type='text/css'>
 
 
@@ -36,6 +36,31 @@
 
     <!-- Mordernizr -->
     <script src="/media/js/modernizr-2.6.2.min.js"></script>
+    <script>
+        $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+
+        xAxis: {
+            categories: ['Green', 'Pink']
+        },
+
+        series: [{
+            data: [{
+                name: 'Point 1',
+                color: '#00FF00',
+                y: 1
+            }, {
+                name: 'Point 2',
+                color: '#FF00FF',
+                y: 5
+            }]
+        }]
+    });
+});
+    </script>
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
@@ -48,8 +73,11 @@
         <h5 class="bg-success col-lg-1">Publicado em  {{ item_mensagem.data }}</h5>
         <span class="col-md-3 animated fadeInUp">{{ item_mensagem.message_text }} </span>
     </div>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 
-<script src="/media/js/jquery-1.11.0.min.js"></script>
+    <div id="container" style="height: 400px"></div>
+
+    <script src="/media/js/jquery-1.11.0.min.js"></script>
     <script src="/media/js/bootstrap.min.js"></script>
 
     <!-- for demo purpose -->
