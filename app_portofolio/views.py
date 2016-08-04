@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
@@ -18,6 +19,7 @@ def portofolio(request):
             form = Formcontato()
     return render_to_response("index.html",{"form": form}, RequestContext(request))
 #@login_required
+@login_required
 def dashboard(request):
 
     mensagens = contato.objects.all()
@@ -26,9 +28,11 @@ def dashboard(request):
     dat = contato.objects.get(pk=len(contato.objects.all()))
     return render_to_response("administrativo/index.html",{"mensagens":mensagens, "tamanho":tamanho, "data":dat.data})
 
+@login_required
 def aconpanha(request, nr_item):
     try:
         msg = contato.objects.get(pk=nr_item)
+        #email = ''
     except contato.DoesNotExist:
         raise Http404()
     return render_to_response("administrativo/mensagens.html", {"item_mensagem":msg})

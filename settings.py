@@ -102,6 +102,18 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'portofolio.urls'
 
+LOGIN_URL ='/login/'
+LOGOUT_URL ='/logout/'
+LOGIN_REDIRECT_URL ='/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+FROM_EMAIL = 'Carlos andre <eucandre@gmail.com>'
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'eucandre@gmail.com'
+EMAIL_HOST_PASSWORD = 'gremiofbpa'
+EMAIL_PORT = 587
+
 import os
 TEMPLATE_DIRS = (os.path.join(os.path.dirname(__file__), 'templates').replace('\\','/'),)
 
@@ -113,10 +125,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
     'portofolio.app_portofolio',
 )
 
