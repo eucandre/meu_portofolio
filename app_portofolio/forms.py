@@ -1,5 +1,7 @@
 from django import forms
 
+from models import *
+
 
 class Formcontato(forms.Form):
     first_name   = forms.CharField(max_length=150, widget=forms.TextInput(attrs={"class":"form-control", "placeholder":"Nome *"}))
@@ -9,4 +11,5 @@ class Formcontato(forms.Form):
     message_text = forms.CharField(widget=forms.Textarea(attrs={"class":"form-control","placeholder":"Mensagem *"}), max_length=500)
 
 class Formemails(forms.Form):
-    remetente = forms.CharField
+    texto = forms.CharField(widget=forms.Textarea(attrs={"class":"form-conrtol", "placeholder":"Corpo da mensagem"}), max_length=1000)
+    remetente = forms.ModelChoiceField(queryset=contato, empty_label="Sem contato", error_messages="Erro !")
