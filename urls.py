@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^$','app_portofolio.views.portofolio'),
     url(r'^mensagem/$','app_portofolio.views.dashboard'),
     url(r'^mensagem_contato/(?P<nr_item>\d+)$','app_portofolio.views.aconpanha'),
+    url(r'^email/$','app_portofolio.views.envia_email'),
     (r'^login/$',"django.contrib.auth.views.login",{"template_name":"administrativo/login.html"}),
     (r'^logout/$',"django.contrib.auth.views.logout_then_login",{"login_url":"/"}),
 

@@ -13,6 +13,7 @@ class contato(models.Model):
 
 class emails(models.Model):
     remetente = models.ForeignKey(contato, blank=True)
+    titulo_email = models.CharField(max_length=150)
     texto = models.TextField()
     data = models.DateField(auto_now=True)
 
