@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
-from django.core.mail import send_mail
 
 from app_portofolio.forms import *
 from app_portofolio.models import *
@@ -17,8 +16,9 @@ def portofolio(request):
             item.save()
             return render_to_response("salvo.html",{})
     else:
-            form = Formcontato()
+        form = Formcontato()
     return render_to_response("index.html",{"form": form}, RequestContext(request))
+
 #@login_required
 @login_required
 def dashboard(request):
@@ -40,13 +40,17 @@ def aconpanha(request, nr_item):
     return render_to_response("administrativo/mensagens.html", {"item_mensagem":msg})
 
 def envia_email(request):
-    if request.method == "post":
+    if request.method == "POST":
         form = Formemails(request.POST, request.FILES)
         if form.is_valid():
             dados = form.cleaned_data
             item  = emails(remetente = dados['remetente'],titulo_email = dados['titulo_email'],texto = dados['texto'])
             item.save()
-            send_mail(item.titulo_email, item.texto,'eucandre@gmail.com',[item.remetente],fail_silently=False,)
+            para = item.remetente
+            assunto = item.texto
+            oque = item.titulo_email
+            #send_mail(oque, assunto, 'eucandre@gmail.com',[para])
+            return render_to_response("salvo.html",{})
     else:
         form = Formemails()
-    return render_to_response("administrativo/email.html", {"form":form}, RequestContext(request))
+    return render_to_response("administrativo/email.html",{"form": form}, RequestContext(request))
