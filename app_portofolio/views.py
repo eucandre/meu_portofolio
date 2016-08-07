@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.core.mail import send_mail
 
 from app_portofolio.forms import *
 from app_portofolio.models import *
@@ -45,11 +46,8 @@ def envia_email(request):
         if form.is_valid():
             dados = form.cleaned_data
             item  = emails(remetente = dados['remetente'],titulo_email = dados['titulo_email'],texto = dados['texto'])
+            send_mail("Retorno de contato", item.texto, 'eucandre@gmail.com',[item.remetente.email])#[item.remetente])
             item.save()
-            para = item.remetente
-            assunto = item.texto
-            oque = item.titulo_email
-            #send_mail(oque, assunto, 'eucandre@gmail.com',[para])
             return render_to_response("salvo.html",{})
     else:
         form = Formemails()
