@@ -46,7 +46,7 @@ def envia_email(request):
         if form.is_valid():
             dados = form.cleaned_data
             item  = emails(remetente = dados['remetente'],titulo_email = dados['titulo_email'],texto = dados['texto'])
-            send_mail("Retorno de contato", item.texto, 'eucandre@gmail.com',[item.remetente.email])#[item.remetente])
+            send_mail(item.titulo_email, item.texto, 'eucandre@gmail.com',[item.remetente.email])
             item.save()
             return render_to_response("salvo.html",{})
     else:
