@@ -40,6 +40,7 @@ def aconpanha(request, nr_item):
         raise Http404()
     return render_to_response("administrativo/mensagens.html", {"item_mensagem":msg})
 
+@login_required
 def envia_email(request):
     if request.method == "POST":
         form = Formemails(request.POST, request.FILES)
@@ -53,6 +54,7 @@ def envia_email(request):
         form = Formemails()
     return render_to_response("administrativo/email.html",{"form": form}, RequestContext(request))
 
+@login_required
 def gerencial(request):
 
      return render_to_response("administrativo/painel.html")
