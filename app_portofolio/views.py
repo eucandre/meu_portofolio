@@ -3,7 +3,6 @@ from django.http import Http404
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from django.core.mail import send_mail
-from django.contrib.auth import *
 from app_portofolio.forms import *
 from app_portofolio.models import *
 
