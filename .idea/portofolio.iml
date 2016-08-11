@@ -13,6 +13,7 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Node.js v4.2.6 Core Modules" level="application" />
   </component>
   <component name="ReSTService">
     <option name="workdir" value="$MODULE_DIR$" />
