@@ -19,7 +19,7 @@ def portofolio(request):
         form = Formcontato()
     return render_to_response("index.html",{"form": form}, RequestContext(request))
 
-#@login_required
+
 @login_required
 def dashboard(request):
     try:
